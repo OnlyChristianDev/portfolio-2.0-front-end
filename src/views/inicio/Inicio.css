@@ -1,4 +1,40 @@
-div{
-    margin-top: 100px;
-    background-color: aqua;
+.main {
+    margin-top: 55px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.destaque{
+    color: var(--color-primary);
+}
+
+.description-me h1{
+    margin: 0;
+    font-size: 40px;
+}
+.description-me p{
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.description-me {
+    width: 420px;
+}
+
+.download-cv{
+    border: none;
+    outline: none;
+    font-family: 'Poppins';
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 4px;
+    padding: 10px 29px;
+    cursor: pointer;
+}
+
+.social-medias{
+    display: flex;
+    gap: 10px;
 }
