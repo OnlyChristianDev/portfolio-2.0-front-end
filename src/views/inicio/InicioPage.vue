@@ -10,6 +10,9 @@
       </div>
       <button class="download-cv">Download CV</button>
     </div>
+    <div>
+      <Vue3Lottie :animationData="animationData" :loop="true" />
+    </div>
   </div>
 </template>
 
@@ -17,6 +20,8 @@
 import SociaMedia from './components/SociaMedia.vue';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { Vue3Lottie } from 'vue3-lottie';
+import animationData from "@/assets/animation/animation.json"
 </script>
 
 <style scoped src="@/views/inicio/Inicio.css">
