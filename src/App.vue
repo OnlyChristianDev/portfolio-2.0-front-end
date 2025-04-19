@@ -1,9 +1,11 @@
 <template>
   <HeaderComponent />
-  <RouterView />
+  <InicioPage />
+  <SobrePage />
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router'
+import SobrePage from './views/sobre/SobrePage.vue';
+import InicioPage from './views/inicio/InicioPage.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 </script>
