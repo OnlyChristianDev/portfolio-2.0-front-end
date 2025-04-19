@@ -25,11 +25,21 @@ defineProps({
   height: 40px;
   cursor: pointer;
   margin-bottom: 10px;
+  transition: ease 0.3s;
 }
 
 .icon {
   color: var(--color-primary);
   width: 25px;
   height: 25px;
+}
+
+.container-social-media:hover .icon {
+  color: var(--color-secondary);
+}
+
+.container-social-media:hover{
+  transform: scale(1.1);
+  border: 1px solid var(--color-secondary);
 }
 </style>

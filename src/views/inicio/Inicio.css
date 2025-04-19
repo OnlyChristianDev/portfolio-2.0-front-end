@@ -1,8 +1,8 @@
 .main {
-    margin-top: 55px;
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .destaque{
@@ -20,7 +20,7 @@
 }
 
 .description-me {
-    width: 420px;
+    width: 460px;
 }
 
 .download-cv{
@@ -32,6 +32,12 @@
     border-radius: 4px;
     padding: 10px 29px;
     cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.download-cv:hover{
+  background-color: var(--color-secondary);
+  transform: scale(1.1);
 }
 
 .social-medias{
