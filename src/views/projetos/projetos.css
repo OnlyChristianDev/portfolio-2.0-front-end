@@ -13,6 +13,10 @@
   height: 400px;
   border-radius: 4px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
 
 .icon {
@@ -27,4 +31,58 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
+  margin-top: 20px;
 }
+
+.image-project{
+  width: 50%;
+  height: 90%;
+  background-color: white;
+  border-radius: 4px;
+  margin-left: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.137);
+}
+
+.descricao-projeto{
+  width: 50%;
+  height: 100%;
+  margin-right: 20px;
+  padding-top: 60px;
+}
+
+.descricao-projeto h1{
+  color: white;
+  margin: 0;
+}
+
+.descricao-projeto p{
+  color: white;
+  font-weight: 300;
+}
+
+.descricao-projeto button{
+  border: none;
+  outline: none;
+  font-family: 'Poppins';
+  background-color: white;
+  color:var(--color-primary);
+  border-radius: 4px;
+  padding: 10px ;
+  cursor: pointer;
+  transition: ease 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.descricao-projeto button:hover{
+transform: scale(1.05);
+}
+
+.icon-arrow{
+  color: var(--color-primary);
+  width: 15px;
+  height: 15px;
+}
+
+
