@@ -21,19 +21,26 @@ input{
   font-size: 15px;
   padding-bottom: 10px;
   color: gray;
+  font-family: Poppins;
+  transition: 0.2s ease-in-out;
+  font-size: 16px;
 }
 
 input::placeholder{
   font-family: Poppins;
   font-weight: 300;
+  font-size: 16px;
+  transition: opacity 0.2s ease;
+  opacity: 1;
 }
 
 input:focus {
   border-bottom: 1px solid  var(--color-secondary);
   color: var(--color-secondary);
 }
+
 input:focus::placeholder{
-  color: transparent;
+  opacity: 0;
 }
 
 </style>
