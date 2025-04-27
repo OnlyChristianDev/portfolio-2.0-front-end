@@ -9,8 +9,8 @@
         <h2>Christian Gabriel</h2>
         <h3>Frontend Developer & UX Designer</h3>
         <p>
-          Atualmente, atuo na área, numa ageência de social media desenvolvendo interfaces modernas
-          e eficientes com Vue, TypeScript, JavaScript e Tailwind CSS. Tenho experiência prática em
+          Atualmente, atuo na área, numa agência de social media desenvolvendo interfaces modernas
+          e eficientes com Vue, React, TypeScript, JavaScript e Tailwind CSS. Tenho experiência prática em
           projetos reais, focando em performance, acessibilidade e boas práticas de desenvolvimento.
         </p>
         <div class="social-medias">

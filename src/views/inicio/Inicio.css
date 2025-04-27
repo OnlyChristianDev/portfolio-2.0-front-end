@@ -37,7 +37,7 @@
 
 .download-cv:hover{
   background-color: var(--color-secondary);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .social-medias{
