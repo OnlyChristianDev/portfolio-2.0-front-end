@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <slot></slot>
     <font-awesome-icon class="icon" :icon="icon" />
   </div>
 </template>
@@ -8,7 +9,7 @@
 defineProps({
   icon: {
     type: String,
-    required: true,
+    required: false,
   },
 })
 
@@ -36,9 +37,6 @@ defineProps({
   height: 90px;
   color: var(--color-secondary);
   transition: ease 1s;
-}
-.container:hover .icon{
-  color: var(--color-primary);
 }
 
 </style>

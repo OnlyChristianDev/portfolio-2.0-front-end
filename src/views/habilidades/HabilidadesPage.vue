@@ -5,15 +5,15 @@
       <Habilidade :icon="faHtml5" />
       <Habilidade :icon="faCss3Alt" />
       <Habilidade :icon="faJs" />
-      <Habilidade  />
+      <Habilidade><i class="devicon-nextjs-plain"></i></Habilidade>
       <Habilidade :icon="faVuejs" />
       <Habilidade :icon="faReact" />
       <Habilidade :icon="faNodeJs"/>
       <Habilidade :icon="faFigma"/>
       <Habilidade :icon="faGithub"/>
       <Habilidade :icon="faGitAlt"/>
-      <Habilidade  />
-      <Habilidade  />
+      <Habilidade><img class="pinia" src="../../assets/images/PiniaLogo.png" alt="pinia"></Habilidade>
+      <Habilidade><i class="devicon-tailwindcss-original"></i></Habilidade>
     </div>
   </div>
 </template>
