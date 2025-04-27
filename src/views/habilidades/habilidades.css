@@ -1,4 +1,4 @@
-.main{
+.main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,6 +6,7 @@
   height: 100vh;
   flex-direction: column;
 }
+
 .main h2{
   font-size: 50px;
   font-weight: 600;
@@ -14,8 +15,23 @@
   margin-bottom: 50px;
 }
 
-.grid-habiidades{
+.grid-habiidades {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
+}
+
+.pinia {
+  width: 70px;
+  height: auto;
+}
+
+.devicon-nextjs-plain {
+  color: var(--color-secondary);
+  font-size: 90px;
+}
+
+.devicon-tailwindcss-original {
+  font-size: 90px;
+  color: var(--color-secondary);
 }
