@@ -1,5 +1,5 @@
 <template>
-    <input  :placeholder="placeholder" type="text" />
+    <input v-model="value" :placeholder="placeholder" type="text" />
 </template>
 
 <script setup>
@@ -9,6 +9,8 @@ defineProps({
     required: true,
   }
 })
+
+const value = defineModel()
 </script>
 
 <style scoped>
@@ -16,11 +18,11 @@ input{
   font-weight: 300;
   outline: none;
   border: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(153, 153, 153);
   width: 50%;
   font-size: 15px;
   padding-bottom: 10px;
-  color: gray;
+  color: rgb(153, 153, 153);
   font-family: Poppins;
   transition: 0.2s ease-in-out;
   font-size: 16px;
