@@ -14,9 +14,9 @@
           projetos reais, focando em performance, acessibilidade e boas práticas de desenvolvimento.
         </p>
         <div class="social-medias">
-          <AboutMedias :icon="faGithub" />
-          <AboutMedias :icon="faLinkedin" />
-          <AboutMedias :icon="faEnvelope" />
+          <AboutMedias href="https://github.com/OnlyChristianDev" :icon="faGithub" />
+          <AboutMedias href="https://www.linkedin.com/in/christiangdev" :icon="faLinkedin" />
+          <AboutMedias @click="enviaEmail" :icon="faEnvelope" />
         </div>
       </div>
     </div>
@@ -29,6 +29,10 @@ import { Vue3Lottie } from 'vue3-lottie'
 import AboutMedias from './components/AboutMedias.vue'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
+const enviaEmail = () => {
+  window.open('https://mail.google.com/mail/?view=cm&to=christiandeveloper123@gmail.com', '_blank');
+}
 </script>
 
 <style src="/src/views/sobre/sobre.css" scoped></style>
