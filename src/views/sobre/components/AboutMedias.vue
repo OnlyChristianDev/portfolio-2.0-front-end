@@ -1,7 +1,9 @@
 <template>
-  <div class="container-social-media">
-    <font-awesome-icon class="icon" :icon="icon" />
-  </div>
+  <a :href="href">
+    <div class="container-social-media">
+      <font-awesome-icon class="icon" :icon="icon" />
+    </div>
+  </a>
 </template>
 
 <script setup>
@@ -9,6 +11,10 @@ defineProps({
   icon: {
     type: String,
     required: true,
+  },
+  href: {
+    type: String,
+    required: false,
   },
 })
 </script>
@@ -37,7 +43,7 @@ defineProps({
   color: var(--color-secondary);
 }
 
-.container-social-media:hover{
+.container-social-media:hover {
   border: 2px solid var(--color-secondary);
 }
 </style>
