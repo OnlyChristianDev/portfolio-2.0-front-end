@@ -1,5 +1,5 @@
 <template>
-    <input v-model="value" :placeholder="placeholder" type="text" />
+    <input :type="type" v-model="value" :placeholder="placeholder" type="text" />
 </template>
 
 <script setup>
@@ -7,7 +7,11 @@ defineProps({
   placeholder:{
     type: String,
     required: true,
-  }
+  },
+  type: {
+    type: String,
+    required: true,
+  },
 })
 
 const value = defineModel()

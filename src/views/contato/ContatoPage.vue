@@ -6,16 +6,17 @@
         Ei! Ficou com alguma dúvida ou tem uma proposta? Me conte mais sobre sua ideia, vamos
         conversar!.
       </p>
-      <form @submit.prevent="enviarEmail" method="post">
+      <form @submit.prevent="enviaEmail" method="post">
         <div class="email">
-          <InputComponent v-model="nome" placeholder="Seu nome" />
-          <InputComponent v-model="email" placeholder="Seu e-mail" />
+          <InputComponent type="" v-model="nome" placeholder="Seu nome" />
+          <InputComponent type="email" v-model="email" placeholder="Seu e-mail" />
         </div>
         <div class="container-textarea">
           <TextAreaComponent v-model="descricao" />
         </div>
-        <button class="button-form">
-          <span>Enviar <font-awesome-icon class="icon" :icon="faArrowRight" /></span>
+        <button :disabled="enviado" type="submit" class="button-form">
+          <span v-if="enviado">Enviando...</span>
+          <span v-else>Enviar <font-awesome-icon class="icon" :icon="faArrowRight" /></span>
         </button>
       </form>
       <div class="redes-sociais">
@@ -34,19 +35,36 @@ import InputComponent from './components/InputComponent.vue'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { ref } from 'vue'
+import emailjs from '@emailjs/browser'
 
+const enviado = ref(false)
 const nome = ref('')
 const email = ref('')
 const descricao = ref('')
 
-const emailData = ref({
-  nome: '',
-  email: '',
-  mensagem: ''
-})
-
-const enviaEmail = () => {
-
+const enviaEmail = async () => {
+  try {
+    enviado.value = true
+    await emailjs.send(
+      'service_fgroul8',
+      'template_9qkm5m5',
+      {
+        name: nome.value,
+        email: email.value,
+        message: descricao.value,
+      },
+      'aGFyu7MBSgmGrQ4ee',
+    )
+    nome.value = ''
+    email.value = ''
+    descricao.value = ''
+  } catch (error) {
+    console.error('Erro ao enviar o email:', error)
+    alert('Erro ao enviar o email. Tente novamente mais tarde.')
+  }
+  finally {
+    enviado.value = false
+  }
 }
 
 const redirecionaGmail = () => {
