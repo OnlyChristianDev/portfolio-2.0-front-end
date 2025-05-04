@@ -10,8 +10,9 @@
 }
 
 .description-me h1{
-    margin: 0;
+    margin-bottom: 10px;
     font-size: 40px;
+    line-height: 1.0;
 }
 .description-me p{
     font-size: 18px;
