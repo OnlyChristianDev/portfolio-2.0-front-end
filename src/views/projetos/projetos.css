@@ -1,4 +1,4 @@
-.main{
+.main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@
   height: 30px;
 }
 
-.circles-components{
+.circles-components {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +35,7 @@
   margin-top: 20px;
 }
 
-.image-project{
+.image-project {
   width: 50%;
   height: 90%;
   background-color: white;
@@ -44,31 +44,33 @@
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.137);
 }
 
-.descricao-projeto{
+.descricao-projeto {
   width: 50%;
   height: 100%;
   margin-right: 20px;
   padding-top: 60px;
 }
 
-.descricao-projeto h1{
+.descricao-projeto h1 {
   color: white;
   margin: 0;
+  line-height: 1.0;
 }
 
-.descricao-projeto p{
+.descricao-projeto p {
   color: white;
   font-weight: 300;
+
 }
 
-.descricao-projeto button{
+.descricao-projeto button {
   border: none;
   outline: none;
   font-family: 'Poppins';
   background-color: white;
-  color:var(--color-primary);
+  color: var(--color-primary);
   border-radius: 4px;
-  padding: 10px ;
+  padding: 10px;
   cursor: pointer;
   transition: ease 0.3s;
   display: flex;
@@ -97,4 +99,31 @@ transform: scale(1.05);
   color: var(--color-primary);
   font-size: 50px;
   font-weight: 600;
+=======
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.5s ease;
+  position: absolute;
+}
+
+.slide-enter-from {
+  transform: translateX(100%);
+}
+
+.slide-enter-to, .slide-leave-from{
+  transform: translateX(0);
+}
+
+.slide-leave-to {
+  transform: translateX(-100%);
+}
+
+.container-projetos {
+  position: relative;
+  overflow: hidden;
+}
+
+.projetos {
+  position: relative;
+  z-index: 1;
 }
