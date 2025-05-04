@@ -53,11 +53,13 @@
 .descricao-projeto h1 {
   color: white;
   margin: 0;
+  line-height: 1.0;
 }
 
 .descricao-projeto p {
   color: white;
   font-weight: 300;
+
 }
 
 .descricao-projeto button {
