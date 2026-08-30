@@ -1,8 +1,59 @@
 .main {
+    position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    background: transparent;
+}
+
+.shape {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(2px);
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.shape-left {
+  left: -70px;
+  top: 80px;
+  width: 220px;
+  height: 280px;
+  border-radius: 70% 30% 62% 38% / 50% 45% 55% 50%;
+  background: rgba(39, 61, 168, 0.08);
+  transform: rotate(-18deg);
+}
+
+.shape-right {
+  right: -60px;
+  top: 40px;
+  width: 260px;
+  height: 300px;
+  border-radius: 38% 62% 55% 45% / 40% 50% 50% 60%;
+  background: rgba(39, 61, 168, 0.06);
+  transform: rotate(18deg);
+}
+
+.shape-bottom-left {
+  left: 40px;
+  bottom: -30px;
+  width: 260px;
+  height: 180px;
+  border-radius: 60% 40% 50% 50% / 65% 35% 65% 35%;
+  background: rgba(67, 83, 190, 0.08);
+  transform: rotate(-12deg);
+}
+
+.shape-bottom-right {
+  right: 50px;
+  bottom: -20px;
+  width: 230px;
+  height: 170px;
+  border-radius: 38% 62% 57% 43% / 52% 43% 57% 48%;
+  background: rgba(67, 83, 190, 0.07);
+  transform: rotate(18deg);
 }
 
 .destaque{
@@ -13,15 +64,21 @@
     margin-bottom: 10px;
     font-size: 40px;
     line-height: 1.0;
+    position: relative;
+    z-index: 1;
 }
 .description-me p{
     font-size: 18px;
     margin: 0;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .description-me {
     width: 460px;
+    position: relative;
+    z-index: 1;
 }
 
 .download-cv{
@@ -44,4 +101,6 @@
 .social-medias{
     display: flex;
     gap: 10px;
+    position: relative;
+    z-index: 1;
 }

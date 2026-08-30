@@ -1,7 +1,11 @@
 <template>
-  <div class="container">
-    <slot></slot>
-    <font-awesome-icon class="icon" :icon="icon" />
+  <div class="container" :aria-label="name">
+    <div class="content">
+      <slot v-if="!icon"></slot>
+      <font-awesome-icon v-else class="icon" :icon="icon" />
+    </div>
+
+    <span v-if="name" class="skill-name">{{ name }}</span>
   </div>
 </template>
 
@@ -10,13 +14,19 @@ defineProps({
   icon: {
     type: String,
     required: false,
+    default: null,
+  },
+  name: {
+    type: String,
+    required: false,
+    default: '',
   },
 })
-
 </script>
 
 <style scoped>
-.container{
+.container {
+  position: relative;
   width: 160px;
   height: 160px;
   background-color: rgba(248, 248, 248, 0.712);
@@ -27,16 +37,75 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
-.container:hover{
+
+.container:hover {
   border: 2px solid var(--color-primary);
 }
 
-.icon{
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.container:hover .content {
+  transform: translateY(-4px);
+}
+
+.skill-name {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translate(-50%, 18px);
+  opacity: 0;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+.skill-name::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.container:hover .skill-name {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+:deep(i) {
+  display: block;
+  font-size: 90px;
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+:deep(img) {
+  width: 80px;
+  height: auto;
+}
+
+.icon {
   width: 90px;
   height: 90px;
   color: var(--color-secondary);
   transition: ease 1s;
 }
-
 </style>

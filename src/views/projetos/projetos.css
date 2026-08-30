@@ -1,4 +1,5 @@
 .main {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,6 +7,7 @@
   width: 100%;
   height: 100vh;
   gap: 20px;
+  overflow: hidden;
 }
 
 .projetos {
@@ -18,6 +20,8 @@
   align-items: center;
   justify-content: center;
   gap: 50px;
+  position: relative;
+  z-index: 1;
 }
 
 .icon {
@@ -44,23 +48,33 @@
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.137);
 }
 
+.image-project-small {
+  width: 50%;
+  height: 90%;
+  background-color: white;
+  border-radius: 4px;
+  margin-left: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.137);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .descricao-projeto {
   width: 50%;
   height: 100%;
   margin-right: 20px;
-  padding-top: 60px;
 }
 
 .descricao-projeto h1 {
+  margin: 60px 0px 0px 0px;
   color: white;
-  margin: 0;
-  line-height: 1.0;
+  line-height: 1;
 }
 
 .descricao-projeto p {
   color: white;
   font-weight: 300;
-
 }
 
 .descricao-projeto button {
@@ -79,7 +93,7 @@
 }
 
 .descricao-projeto button:hover {
-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .icon-arrow {
@@ -99,31 +113,46 @@ transform: scale(1.05);
   color: var(--color-primary);
   font-size: 50px;
   font-weight: 600;
-=======
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.5s ease;
-  position: absolute;
 }
 
-.slide-enter-from {
-  transform: translateX(100%);
+.prev {
+  animation: slidePrev 0.5s forwards;
 }
 
-.slide-enter-to, .slide-leave-from{
-  transform: translateX(0);
+.next {
+  animation: slideNext 0.5s forwards;
 }
 
-.slide-leave-to {
-  transform: translateX(-100%);
+@keyframes slidePrev {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  51% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.container-projetos {
-  position: relative;
-  overflow: hidden;
-}
-
-.projetos {
-  position: relative;
-  z-index: 1;
+@keyframes slideNext {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  51% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

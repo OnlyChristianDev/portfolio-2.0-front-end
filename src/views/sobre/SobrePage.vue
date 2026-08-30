@@ -7,16 +7,21 @@
       <div class="description">
         <h4>Sobre mim.</h4>
         <h2>Christian Gabriel</h2>
-        <h3>Frontend Developer & UX Designer</h3>
+        <h3>Desenvolvedor Frontend</h3>
         <p>
-          Atualmente, atuo na área, numa agência de social media desenvolvendo interfaces modernas
-          e eficientes com Vue, React, TypeScript, JavaScript e Tailwind CSS. Tenho experiência prática em
-          projetos reais, focando em performance, acessibilidade e boas práticas de desenvolvimento.
+          Atualmente, atuo em múltiplos projetos como desenvolvedor Frontend, trabalhando no
+          desenvolvimento, evolução e modernização de aplicações web. Tenho experiência com Angular,
+          Vue, React e TypeScript, atuando com autonomia na implementação de funcionalidades,
+          refatoração e melhoria de aplicações.
         </p>
         <div class="social-medias">
-          <AboutMedias href="https://github.com/OnlyChristianDev" :icon="faGithub" />
-          <AboutMedias href="https://www.linkedin.com/in/christiangdev" :icon="faLinkedin" />
-          <AboutMedias @click="enviaEmail" :icon="faEnvelope" />
+          <AboutMedias
+            v-for="social in socialMedias"
+            :key="social.name"
+            :href="social.href"
+            :icon="social.icon"
+            @click="openLink(social.href)"
+          />
         </div>
       </div>
     </div>
@@ -30,8 +35,26 @@ import AboutMedias from './components/AboutMedias.vue'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-const enviaEmail = () => {
-  window.open('https://mail.google.com/mail/?view=cm&to=christiandeveloper123@gmail.com', '_blank');
+const socialMedias = [
+  {
+    name: 'GitHub',
+    href: 'https://github.com/christian-gab',
+    icon: faGithub,
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/christiangdev',
+    icon: faLinkedin,
+  },
+  {
+    name: 'Email',
+    href: 'https://mail.google.com/mail/?view=cm&to=christiandeveloper123@gmail.com',
+    icon: faEnvelope,
+  },
+]
+
+const openLink = (href) => {
+  window.open(href, '_blank')
 }
 </script>
 
