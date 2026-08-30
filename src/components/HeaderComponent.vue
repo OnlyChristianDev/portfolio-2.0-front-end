@@ -1,11 +1,9 @@
 <template>
   <header :class="[border]">
     <ul>
-      <li>Início</li>
-      <li>Sobre</li>
-      <li>Habilidades</li>
-      <li>Projetos</li>
-      <li>Contato</li>
+      <li v-for="item in menuItems" :key="item.id" @click="scrollToSection(item.id)">
+        {{ item.label }}
+      </li>
     </ul>
   </header>
 </template>
@@ -17,18 +15,20 @@ header {
   display: flex;
   align-items: center;
   justify-content: end;
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   background-color: white;
-  z-index: 1000; 
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
 }
 
 ul {
   display: flex;
   gap: 24px;
   list-style: none;
-  padding-right: 24px;
+  margin-right: 48px;
 }
 
 li {
@@ -36,14 +36,15 @@ li {
   font-weight: 400;
   cursor: pointer;
 }
+
 li:hover {
   color: var(--color-primary);
 }
 
 .border {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.315);
+  border-color: rgba(0, 0, 0, 0.315);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.10);
 }
-
 </style>
 
 <script setup>
@@ -51,11 +52,27 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const border = ref('')
 
+const menuItems = [
+  { label: 'Início', id: 'inicio' },
+  { label: 'Sobre', id: 'sobre' },
+  { label: 'Habilidades', id: 'habilidades' },
+  { label: 'Projetos', id: 'projetos' },
+  { label: 'Contato', id: 'contato' },
+]
+
 const handleScroll = () => {
   if (window.scrollY > 0) {
     border.value = 'border'
   } else {
     border.value = ''
+  }
+}
+
+const scrollToSection = (id) => {
+  const section = document.getElementById(id)
+
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 }
 

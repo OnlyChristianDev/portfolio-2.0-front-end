@@ -1,83 +1,96 @@
 <template>
   <div class="main">
     <h1 class="title">Projetos</h1>
+
     <div class="projetos-main">
-      <font-awesome-icon class="icon" :icon="faChevronLeft" />
+      <div @click="prevSlide">
+        <font-awesome-icon class="icon" :icon="faChevronLeft" />
+      </div>
+
       <div class="container-projetos">
-        <div class="projetos">
-          <div class="image-project"></div>
-          <div class="descricao-projeto">
-            <h1>Titulo</h1>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic architecto totam
-              corrupti, laboriosam consectetur explicabo pariatur laudantium fugiat veritatis
-              eveniet quis ab, expedita quibusdam maxime quo itaque maiores? Tenetur, obcaecati.
-            </p>
-    <div @click="prevSlide">
-      <font-awesome-icon class="icon" :icon="faChevronLeft" />
-    </div>
-    <div class="container-projetos">
-      <Transition name="slide" mode="out-in">
-        <div class="projetos" :key="projetoAtual">
-          <div class="image-project">
-            <img />
+        <div :class="{ prev, next }" class="projetos" :key="projetoAtual">
+          <div
+            class="image-project"
+            :class="{ 'image-project-small': currentProject.title === 'Virtual-R' }"
+          >
+            <Vue3Lottie
+              :animationData="animacoes[currentProject.animation]"
+              :loop="true"
+              :autoPlay="true"
+              :width="currentProject.title === 'Virtual-R' ? '300px' : '100%'"
+              :height="currentProject.title === 'Virtual-R' ? '300px' : '100%'"
+            />
           </div>
+
           <div class="descricao-projeto">
             <h1>{{ currentProject.title }}</h1>
             <p>{{ currentProject.description }}</p>
-            <button>
+
+            <button @click="abrirProjeto">
               Confira
               <font-awesome-icon class="icon-arrow" :icon="faArrowRight" />
             </button>
           </div>
-
         </div>
+
         <div class="circles-components">
-          <CircleComponent v-for="(project, index) in projects" :key="index" />
+          <CircleComponent v-for="(project, index) in projetos" :key="index" :active="index === projetoAtual"
+            @click="projetoAtual = index" />
         </div>
       </div>
-      <font-awesome-icon class="icon" :icon="faChevronRight" />
-    </div>
-        </div>
-      </Transition>
-      <div class="circles-components">
-        <CircleComponent
-          v-for="(project, index) in projects"
-          :key="index"
-          :active="index === projetoAtual"
-          @click.native="projetoAtual = index"
-        />
-      </div>
-    </div>
 
-    <div @click="nextSlide">
-      <font-awesome-icon class="icon" :icon="faChevronRight" />
+      <div @click="nextSlide">
+        <font-awesome-icon class="icon" :icon="faChevronRight" />
+      </div>
     </div>
   </div>
 </template>
+
 
 <script setup>
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import CircleComponent from './components/CircleComponent.vue'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { computed, ref } from 'vue'
+import { Vue3Lottie } from 'vue3-lottie'
+import contactAnimation from '@/assets/animation/Contact.json'
+import summerAnimation from '@/assets/animation/Summer.json'
+import cardsAnimation from '@/assets/animation/Cards.json'
+import virtualRAnimation from '@/assets/animation/Backend.json'
 import projetos from './arrayProjetos'
 
-const projetoAtual = ref(0)
 
+const animacoes = {
+  contact: contactAnimation,
+  summer: summerAnimation,
+  cards: cardsAnimation,
+  'virtual-r': virtualRAnimation,
+}
+
+const projetoAtual = ref(0)
+const prev = ref(false)
+const next = ref(false)
 const currentProject = computed(() => projetos[projetoAtual.value])
 
 const nextSlide = () => {
+  next.value = true
   projetoAtual.value = (projetoAtual.value + 1) % projetos.length
+  clearInterval(intervale)
 }
 
 const prevSlide = () => {
+  prev.value = true
   projetoAtual.value = (projetoAtual.value - 1 + projetos.length) % projetos.length
+  clearInterval(intervale)
 }
 
-setInterval(() => {
+const intervale = setInterval(() => {
   nextSlide()
-}, 7000)
+}, 5000)
+
+const abrirProjeto = () => {
+  window.open(currentProject.value.href, '_blank')
+}
 
 </script>
 

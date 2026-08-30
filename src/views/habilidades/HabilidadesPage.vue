@@ -2,25 +2,49 @@
   <div class="main">
     <h2>Habilidades</h2>
     <div class="grid-habiidades">
-      <Habilidade :icon="faHtml5" />
-      <Habilidade :icon="faCss3Alt" />
-      <Habilidade :icon="faJs" />
-      <Habilidade><i class="devicon-nextjs-plain"></i></Habilidade>
-      <Habilidade :icon="faVuejs" />
-      <Habilidade :icon="faReact" />
-      <Habilidade :icon="faNodeJs"/>
-      <Habilidade :icon="faFigma"/>
-      <Habilidade :icon="faGithub"/>
-      <Habilidade :icon="faGitAlt"/>
-      <Habilidade><img class="pinia" src="../../assets/images/PiniaLogo.png" alt="pinia"></Habilidade>
-      <Habilidade><i class="devicon-tailwindcss-original"></i></Habilidade>
+      <template v-for="(habilidade, index) in habilidades" :key="index">
+        <Habilidade v-if="habilidade.icon" :icon="habilidade.icon" :name="habilidade.name" />
+        <Habilidade v-else-if="habilidade.className" :name="habilidade.name">
+          <i :class="habilidade.className"></i>
+        </Habilidade>
+        <Habilidade v-else :name="habilidade.name">
+          <img class="pinia" :src="habilidade.image" :alt="habilidade.alt" />
+        </Habilidade>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { faHtml5, faCss3Alt, faJs, faVuejs, faReact, faNodeJs, faFigma, faGithub, faGitAlt} from '@fortawesome/free-brands-svg-icons'
+import {
+  faHtml5,
+  faCss3Alt,
+  faJs,
+  faVuejs,
+  faReact,
+  faNodeJs,
+  faGitAlt,
+} from '@fortawesome/free-brands-svg-icons'
 import Habilidade from './components/Habilidade.vue'
+
+const habilidades = [
+  { name: 'HTML5', icon: faHtml5 },
+  { name: 'CSS3', icon: faCss3Alt },
+  { name: 'JavaScript', icon: faJs },
+  { name: 'TypeScript', className: 'devicon-typescript-plain' },
+  { name: 'Angular', className: 'devicon-angularjs-plain' },
+  { name: 'Vue.js', icon: faVuejs },
+  { name: 'React', icon: faReact },
+  { name: 'Node.js', icon: faNodeJs },
+  { name: 'Next.js', className: 'devicon-nextjs-plain' },
+  { name: 'Git', icon: faGitAlt },
+  {
+    name: 'Pinia',
+    image: new URL('../../assets/images/PiniaLogo.png', import.meta.url).href,
+    alt: 'Pinia logo',
+  },
+  { name: 'Tailwind CSS', className: 'devicon-tailwindcss-original' },
+]
 </script>
 
 <style src="../habilidades/habilidades.css" scoped></style>
